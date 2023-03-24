@@ -1,63 +1,83 @@
+import java.time.LocalDate;
+
 import br.com.dio.desafio.dominio.Bootcamp;
 import br.com.dio.desafio.dominio.Curso;
 import br.com.dio.desafio.dominio.Dev;
 import br.com.dio.desafio.dominio.Mentoria;
 
-import java.time.LocalDate;
 
 public class Main {
     public static void main(String[] args) {
-        Curso curso1 = new Curso();
-        curso1.setTitulo("curso java");
-        curso1.setDescricao("descrição curso java");
-        curso1.setCargaHoraria(8);
 
-        Curso curso2 = new Curso();
-        curso2.setTitulo("curso js");
-        curso2.setDescricao("descrição curso js");
-        curso2.setCargaHoraria(4);
+        Curso cursoJava = new Curso();
+        cursoJava.setTitulo("Curso Java Iniciante");
+        cursoJava.setDescricao("Neste curso, aprenda sobre o melhor da técnologia por trás da linguagem Java");
+        cursoJava.setCargaHoraria(20);
 
-        Mentoria mentoria = new Mentoria();
-        mentoria.setTitulo("mentoria de java");
-        mentoria.setDescricao("descrição mentoria java");
-        mentoria.setData(LocalDate.now());
+        Curso cursoSpringBoot = new Curso();
+        cursoSpringBoot.setTitulo("Curso Spring Boot");
+        cursoSpringBoot.setDescricao("Aprenda sobre uma das maiores ferramentas do Java");
+        cursoSpringBoot.setCargaHoraria(6);
 
-        /*System.out.println(curso1);
-        System.out.println(curso2);
-        System.out.println(mentoria);*/
+        Mentoria mentoriaIntellij = new Mentoria();
+        mentoriaIntellij.setTitulo("Mentoria IDE - Intellij");
+        mentoriaIntellij.setDescricao("Aprenda os Atalhos, os Truques e Plugins para ser mais produtivo no Intellij");
+        mentoriaIntellij.setData(LocalDate.now());
 
-        Bootcamp bootcamp = new Bootcamp();
-        bootcamp.setNome("Bootcamp Java Developer");
-        bootcamp.setDescricao("Descrição Bootcamp Java Developer");
-        bootcamp.getConteudos().add(curso1);
-        bootcamp.getConteudos().add(curso2);
-        bootcamp.getConteudos().add(mentoria);
+        Mentoria mentoriaMercadoJava = new Mentoria();
+        mentoriaMercadoJava.setTitulo("Mentoria - Mercado Java");
+        mentoriaMercadoJava.setDescricao("Saiba como ser contratado usando Java");
+        mentoriaMercadoJava.setData(LocalDate.now().plusDays(1));
 
-        Dev devCamila = new Dev();
-        devCamila.setNome("Camila");
-        devCamila.inscreverBootcamp(bootcamp);
-        System.out.println("Conteúdos Inscritos Camila:" + devCamila.getConteudosInscritos());
-        devCamila.progredir();
-        devCamila.progredir();
-        System.out.println("-");
-        System.out.println("Conteúdos Inscritos Camila:" + devCamila.getConteudosInscritos());
-        System.out.println("Conteúdos Concluídos Camila:" + devCamila.getConteudosConcluidos());
-        System.out.println("XP:" + devCamila.calcularTotalXp());
+        Bootcamp bootcampJavaPlus = new Bootcamp();
+        bootcampJavaPlus.setNome("Bootcamp Java Plus");
+        bootcampJavaPlus.setDescricao("Neste Bootcamp aprenda sobre Java e ainda mais!");
+        bootcampJavaPlus.getConteudos().add(cursoJava);
+        bootcampJavaPlus.getConteudos().add(cursoSpringBoot);
+        bootcampJavaPlus.getConteudos().add(mentoriaIntellij);
+        bootcampJavaPlus.getConteudos().add(mentoriaMercadoJava);
 
-        System.out.println("-------");
+        System.out.println("---------------------------------------------------------------------");
 
-        Dev devJoao = new Dev();
-        devJoao.setNome("Joao");
-        devJoao.inscreverBootcamp(bootcamp);
-        System.out.println("Conteúdos Inscritos João:" + devJoao.getConteudosInscritos());
-        devJoao.progredir();
-        devJoao.progredir();
-        devJoao.progredir();
-        System.out.println("-");
-        System.out.println("Conteúdos Inscritos João:" + devJoao.getConteudosInscritos());
-        System.out.println("Conteúdos Concluidos João:" + devJoao.getConteudosConcluidos());
-        System.out.println("XP:" + devJoao.calcularTotalXp());
+        Dev devNeymar = new Dev();
+        devNeymar.setNome("Neymar");
+        devNeymar.inscreverBootcamp(bootcampJavaPlus);
+        System.out.println("Conteúdos Inscritos Neymar: " + devNeymar.getConteudoInscritos());
+        devNeymar.progredir();
+        devNeymar.progredir();
+        devNeymar.progredir();
+        devNeymar.progredir();
+        System.out.println("----- LISTA ATUALIZADA -----");
+        System.out.println("Conteúdos Inscritos Neymar: " + devNeymar.getConteudoInscritos());
+        System.out.println("Conteúdos Concluidos Neymar: " + devNeymar.getConteudoConcluidos());
+        System.out.println("XP: " + devNeymar.calcularTotalXp());
 
+        System.out.println("---------------------------------------------------------------------");
+
+        Dev devMarquesini = new Dev();
+        devMarquesini.setNome("Marquesini");
+        devMarquesini.inscreverBootcamp(bootcampJavaPlus);
+        System.out.println("Conteúdos Inscritos Marquesini: " + devMarquesini.getConteudoInscritos());
+        devMarquesini.progredir();
+        System.out.println("----- LISTA ATUALIZADA -----");
+        System.out.println("Conteúdos Inscritos Marquesini: " + devMarquesini.getConteudoInscritos());
+        System.out.println("Conteúdos Concluidos Marquesini: " + devMarquesini.getConteudoConcluidos());
+        System.out.println("XP: " + devMarquesini.calcularTotalXp());
+
+        System.out.println("---------------------------------------------------------------------");
+
+        Dev devAnitta = new Dev();
+        devAnitta.setNome("Anitta");
+        devAnitta.inscreverBootcamp(bootcampJavaPlus);
+        System.out.println("Conteúdos Inscritos Anitta: " + devAnitta.getConteudoInscritos());
+        devAnitta.progredir();
+        devAnitta.progredir();
+        devAnitta.progredir();
+        System.out.println("----- LISTA ATUALIZADA -----");
+        System.out.println("Conteúdos Inscritos Anitta: " + devAnitta.getConteudoInscritos());
+        System.out.println("Conteúdos Concluidos Anitta: " + devAnitta.getConteudoConcluidos());
+        System.out.println("XP: " + devAnitta.calcularTotalXp());
+
+        System.out.println("---------------------------------------------------------------------");
     }
-
 }
